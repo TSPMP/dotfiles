@@ -71,4 +71,5 @@ set tabstop=8
 " Enable more colors
 set termguicolors
 " Use smartcase for search
+set ignorecase
 set smartcase
