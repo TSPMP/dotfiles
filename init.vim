@@ -15,6 +15,7 @@ Plug 'Shougo/deoplete.nvim'
 "Plug 'neovim/nvim-lsp'
 "Plug 'Shougo/deoplete-lsp'
 Plug 'chriskempson/base16-vim'
+Plug 'tpope/vim-surround'
 
 call plug#end()
 
