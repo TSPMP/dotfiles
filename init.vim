@@ -45,6 +45,11 @@ function LanguageClient_maps()
     nnoremap <buffer> <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
     nnoremap <buffer> <silent> gr :call LanguageClient#textDocument_references()<CR>
     nnoremap <buffer> <silent> gc :call LanguageClient_contextMenu()<CR>
+
+    " for warning/error markers
+    set signcolumn=yes
+    " Do not show preview windows for auto-completion
+    set completeopt-=preview
   endif
 endfunction
 
