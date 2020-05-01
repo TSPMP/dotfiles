@@ -14,6 +14,7 @@ Plug 'Shougo/deoplete.nvim'
 "TODO enable this after LSP is natively supported in NeoVim
 "Plug 'neovim/nvim-lsp'
 "Plug 'Shougo/deoplete-lsp'
+Plug 'chriskempson/base16-vim'
 
 call plug#end()
 
@@ -56,7 +57,7 @@ set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
 " Always use system clipboard
 set clipboard+=unnamedplus
 " Set colorscheme
-colorscheme peachpuff
+colorscheme base16-ashes
 " Show incomplete commands
 set showcmd
 " Characters used for the `:list` command or 'list' option
