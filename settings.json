@@ -1,0 +1,46 @@
+{
+    // Editor
+    "editor.fontFamily": "'Inconsolata', 'Droid Sans Mono', 'Courier New', monospace, 'Droid Sans Fallback'",
+    "editor.fontSize": 16,
+    "editor.minimap.enabled": false,
+    "editor.find.autoFindInSelection": "multiline",
+
+    // Files
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+
+    // Window
+    "window.titleBarStyle": "custom",
+    "window.zoomLevel": 1,
+
+    // Workbench
+    "workbench.tree.renderIndentGuides": "none",
+    "workbench.view.alwaysShowHeaderActions": true,
+
+    // Zen Mode
+    "zenMode.centerLayout": false,
+    "zenMode.hideTabs": false,
+
+    // Online Services
+    "telemetry.enableTelemetry": false,
+    "extensions.ignoreRecommendations": true,
+    "extensions.showRecommendationsOnlyOnDemand": true,
+    "extensions.autoUpdate": false,
+    "workbench.enableExperiments": false,
+    "workbench.settings.enableNaturalLanguageSearch": false,
+    "workbench.colorTheme": "Base16 Dark Ashes",
+
+    // Search
+    "search.collapseResults": "auto",
+    "search.smartCase": true,
+
+    // Miscellaneous
+
+    // rust-analyzer
+    "rust-analyzer.inlayHints.typeHints": false,
+    "rust-analyzer.inlayHints.chainingHints": false,
+
+    // Git History
+    "gitHistory.logLevel": "None",
+}
