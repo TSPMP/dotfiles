@@ -5,6 +5,7 @@
     "editor.minimap.enabled": false,
     "editor.find.autoFindInSelection": "multiline",
     "editor.renderIndentGuides": false,
+    "editor.wordWrap": "on",
 
     // Files
     "files.trimTrailingWhitespace": true,
@@ -18,10 +19,12 @@
     // Workbench
     "workbench.tree.renderIndentGuides": "none",
     "workbench.view.alwaysShowHeaderActions": true,
+    "workbench.colorTheme": "Solarized Dark",
 
     // Zen Mode
     "zenMode.centerLayout": false,
     "zenMode.hideTabs": false,
+    "zenMode.hideLineNumbers": false,
 
     // Online Services
     "telemetry.enableTelemetry": false,
@@ -30,7 +33,6 @@
     "extensions.autoUpdate": false,
     "workbench.enableExperiments": false,
     "workbench.settings.enableNaturalLanguageSearch": false,
-    "workbench.colorTheme": "Base16 Dark Ashes",
 
     // Search
     "search.collapseResults": "auto",
