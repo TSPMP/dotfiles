@@ -3,15 +3,10 @@ echo ">^.^<"
 " Variables and Options ----- {{{
 " =============
 
-" Computer specific options
-let g:python3_host_prog='C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python38\\python.exe'
-
 " Set ripgrep for grep
 set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
 " Always use system clipboard
 set clipboard+=unnamedplus
-" Set colorscheme
-colorscheme torte
 " Show incomplete commands
 set showcmd
 " Characters used for the `:list` command or 'list' option
@@ -33,6 +28,11 @@ set smartcase
 set linebreak
 " Do not unload buffers when abandoned
 set hidden
+set inccommand=split
+" LSP
+set completeopt=menuone,noinsert,noselect
+set shortmess+=c
+
 " ----- }}}
 
 " Plugins ----- {{{
@@ -43,27 +43,39 @@ call plug#begin()
 " List of plugins
 Plug 'junegunn/fzf', { 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-" When installing LanguageClient-neovim for the first time, then `install.sh`
-" or `install.ps1` should be executed to get the binaries.
-Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next',  }
-Plug 'Shougo/deoplete.nvim'
+Plug 'chriskempson/base16-vim'
+Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-lua/telescope.nvim'
+Plug 'nvim-lua/completion-nvim'
+
 call plug#end()
+
+" telescope.nvim
+lua << EOF
+require'telescope'.setup{
+  defaults = {
+    use_less = false,
+  },
+}
+EOF
+
 " ----- }}}
 
-" LanguageClient-neovim ----- {{{
-" =====================
-let g:LanguageClient_serverCommands={
-    \ 'rust': ['ra_lsp_server'],
-    \ 'cpp': ['clangd'],
-    \ 'c': ['clangd'],
-    \ }
-let g:LanguageClient_autoStart=1
+" Language Servers ----- {{{
+" ================
+lua require('nvim_lsp').clangd.setup{on_attach=require'completion'.on_attach}
+lua <<EOF
+require('nvim_lsp').sumneko_lua.setup{
+    cmd = { "/path/to/sumneko_lua/lua-language-server/bin/Linux/lua-language-server",
+            "-E", "/path/to/sumneko_lua/lua-language-server/main.lua" },
+}
+EOF
 " ----- }}}
 
-" deoplete ----- {{{
-" ========
-let g:deoplete#enable_at_startup=1
-" ----- }}}
+" Set colorscheme
+colorscheme base16-ashes
 
 " Key mappings ----- {{{
 " ============
@@ -79,25 +91,30 @@ nnoremap <Leader>sv :source $MYVIMRC<Enter>
 " 'very magic' search
 nnoremap / /\v
 nnoremap ? ?\v
-" Language Client key mappings
-function LanguageClient_maps()
-  if has_key(g:LanguageClient_serverCommands, &filetype)
-    nnoremap <buffer> <silent> K :call LanguageClient#textDocument_hover()<Enter>
-    nnoremap <buffer> <silent> gd :call LanguageClient#textDocument_definition()<Enter>
-    nnoremap <buffer> <silent> <F2> :call LanguageClient#textDocument_rename()<Enter>
-    nnoremap <buffer> <silent> gr :call LanguageClient#textDocument_references()<Enter>
-    nnoremap <buffer> <silent> gc :call LanguageClient_contextMenu()<Enter>
-  endif
-endfunction
+" telescope.nvim
+nnoremap <Leader>p <cmd>lua require'telescope.builtin'.find_files()<Enter>
+nnoremap <Leader>tf <cmd>lua require'telescope.builtin'.current_buffer_fuzzy_find()<Enter>
+nnoremap <Leader>tF <cmd>lua require'telescope.builtin'.live_grep()<Enter>
+nnoremap <Leader>tc <cmd>lua require'telescope.builtin'.commands()<Enter>
+nnoremap <Leader>tq <cmd>lua require'telescope.builtin'.quickfix()<Enter>
+nnoremap <Leader>tl <cmd>lua require'telescope.builtin'.loclist()<Enter>
+nnoremap <Leader>tb <cmd>lua require'telescope.builtin'.buffers()<Enter>
+" LSP
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+nnoremap <Leader>la <cmd>lua require'telescope.builtin'.lsp_code_actions()<Enter>
+nnoremap <Leader>li <cmd>lua vim.lsp.buf.implementation()<Enter>
+nnoremap <Leader>lr <cmd>lua require'telescope.builtin'.lsp_references()<Enter>
+nnoremap <Leader>l2 <cmd>lua vim.lsp.buf.rename()<Enter>
+nnoremap <Leader>ld <cmd>lua vim.lsp.buf.declaration()<Enter>
+nnoremap <Leader>lD <cmd>lua vim.lsp.buf.definition()<Enter>
+nnoremap <Leader>lk <cmd>lua vim.lsp.buf.hover()<Enter>
+nnoremap <Leader>ls <cmd>lua require'telescope.builtin'.lsp_document_symbols()<Enter>
+nnoremap <Leader>lw <cmd>lua require'telescope.builtin'.lsp_workspace_symbols()<Enter>
 " ----- }}}
 
 " Autocommands ----- {{{
 " ============
-augroup language_client
-    autocmd!
-    autocmd FileType * call LanguageClient_maps()
-augroup END
-
 augroup vim_folding
     autocmd!
     autocmd FileType vim setlocal foldmethod=marker
