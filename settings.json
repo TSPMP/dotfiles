@@ -6,6 +6,9 @@
     "editor.find.autoFindInSelection": "multiline",
     "editor.renderIndentGuides": false,
     "editor.wordWrap": "on",
+    "editor.renderWhitespace": "none",
+    "editor.occurrencesHighlight": false,
+    "editor.cursorBlinking": "solid",
 
     // Files
     "files.trimTrailingWhitespace": true,
@@ -14,22 +17,15 @@
 
     // Window
     "window.titleBarStyle": "custom",
-    "window.zoomLevel": 1,
+    "window.zoomLevel": 0,
 
     // Workbench
     "workbench.tree.renderIndentGuides": "none",
-    "workbench.view.alwaysShowHeaderActions": true,
-    "workbench.colorTheme": "Solarized Dark",
-
-    // Zen Mode
-    "zenMode.centerLayout": false,
-    "zenMode.hideTabs": false,
-    "zenMode.hideLineNumbers": false,
+    "workbench.colorTheme": "Night Owl Light",
 
     // Online Services
     "telemetry.enableTelemetry": false,
     "extensions.ignoreRecommendations": true,
-    "extensions.showRecommendationsOnlyOnDemand": true,
     "extensions.autoUpdate": false,
     "workbench.enableExperiments": false,
     "workbench.settings.enableNaturalLanguageSearch": false,
@@ -37,8 +33,7 @@
     // Search
     "search.collapseResults": "auto",
     "search.smartCase": true,
-
-    // Miscellaneous
+    "breadcrumbs.enabled": false,
 
     // rust-analyzer
     "rust-analyzer.inlayHints.typeHints": false,
@@ -46,4 +41,20 @@
 
     // Git History
     "gitHistory.logLevel": "None",
+    "git.enableStatusBarSync": false,
+
+    // Rewrap
+    "rewrap.wrappingColumn": 79,
+
+    // Python
+    "python.experiments.enabled": false,
+    "python.experiments.optOutFrom": [
+        "All"
+    ],
+    "workbench.editorAssociations": [
+        {
+            "viewType": "jupyter.notebook.ipynb",
+            "filenamePattern": "*.ipynb"
+        }
+    ],
 }
