@@ -1,60 +1,44 @@
 {
-    // Editor
+    // VS Code settings
+    "breadcrumbs.enabled": false,
+    "editor.cursorBlinking": "solid",
+    "editor.find.autoFindInSelection": "multiline",
     "editor.fontFamily": "'Inconsolata', 'Droid Sans Mono', 'Courier New', monospace, 'Droid Sans Fallback'",
     "editor.fontSize": 16,
+    "editor.guides.indentation": false,
+    "editor.inlayHints.enabled": "off",
     "editor.minimap.enabled": false,
-    "editor.find.autoFindInSelection": "multiline",
-    "editor.renderIndentGuides": false,
-    "editor.wordWrap": "on",
-    "editor.renderWhitespace": "none",
     "editor.occurrencesHighlight": false,
-    "editor.cursorBlinking": "solid",
-
-    // Files
-    "files.trimTrailingWhitespace": true,
+    "editor.renderWhitespace": "none",
+    "editor.wordWrap": "on",
+    "extensions.autoUpdate": false,
+    "extensions.ignoreRecommendations": true,
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
-
-    // Window
-    "window.titleBarStyle": "custom",
-    "window.zoomLevel": 0,
-
-    // Workbench
-    "workbench.tree.renderIndentGuides": "none",
-    "workbench.colorTheme": "Night Owl Light",
-
-    // Online Services
-    "telemetry.enableTelemetry": false,
-    "extensions.ignoreRecommendations": true,
-    "extensions.autoUpdate": false,
-    "workbench.enableExperiments": false,
-    "workbench.settings.enableNaturalLanguageSearch": false,
-
-    // Search
+    "files.trimTrailingWhitespace": true,
+    "git.enableStatusBarSync": false,
     "search.collapseResults": "auto",
     "search.smartCase": true,
-    "breadcrumbs.enabled": false,
-
-    // rust-analyzer
-    "rust-analyzer.inlayHints.typeHints": false,
-    "rust-analyzer.inlayHints.chainingHints": false,
-
-    // Git History
+    "telemetry.telemetryLevel": "off",
+    "window.menuBarVisibility": "compact",
+    "window.titleBarStyle": "custom",
+    "workbench.colorTheme": "Night Owl Light",
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter.notebook.ipynb"
+    },
+    "workbench.enableExperiments": false,
+    "workbench.settings.enableNaturalLanguageSearch": false,
+    "workbench.sideBar.location": "right",
+    "workbench.tree.renderIndentGuides": "none",
+    "zenMode.hideTabs": false,
+    // Extensions
     "gitHistory.logLevel": "None",
-    "git.enableStatusBarSync": false,
-
-    // Rewrap
-    "rewrap.wrappingColumn": 79,
-
-    // Python
+    "gitHistory.showFileHistorySplit": false,
     "python.experiments.enabled": false,
     "python.experiments.optOutFrom": [
         "All"
     ],
-    "workbench.editorAssociations": [
-        {
-            "viewType": "jupyter.notebook.ipynb",
-            "filenamePattern": "*.ipynb"
-        }
-    ],
+    "rewrap.wrappingColumn": 79,
+    "rust-analyzer.inlayHints.chainingHints": false,
+    "rust-analyzer.inlayHints.typeHints": false,
 }
